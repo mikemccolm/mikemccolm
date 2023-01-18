@@ -1,6 +1,3 @@
-const apiurl = 'http://127.0.0.1:8080/predict'
-body2 = {}
-
 async function getprediction()
 {
     document.getElementById("winner").innerHTML = 'Loading...'
