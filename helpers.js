@@ -24,6 +24,7 @@ async function getprediction()
     fetch("http://127.0.0.1:8080/predict", requestOptions)
     .then(response => response.json())
     .then(result => setElements(result.winner, result.confidence.toString(),result.synced.toString()))
+    .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR' + err.message)
 }
 
 function setElements(winner, confidence,synced)
@@ -54,7 +55,7 @@ function getteams()
     fetch("http://127.0.0.1:8080/teams", requestOptions)
     .then(response => response.json())
     .then(result => updateTeams(result.teams))
-    .catch(err => console.log('An Error Happened, API is likely unavailable'+ err.message))
+    .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR' + err.message)
 }
 
 function updateTeams(teams)
