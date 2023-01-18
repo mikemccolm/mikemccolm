@@ -54,6 +54,7 @@ function getteams()
     fetch("http://127.0.0.1:8080/teams", requestOptions)
     .then(response => response.json())
     .then(result => updateTeams(result.teams))
+    .catch(err => console.log('An Error Happened, API is likely unavailable'+ err.message))
 }
 
 function updateTeams(teams)
