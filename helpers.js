@@ -24,7 +24,7 @@ async function getprediction()
     fetch("http://127.0.0.1:8080/predict", requestOptions)
     .then(response => response.json())
     .then(result => setElements(result.winner, result.confidence.toString(),result.synced.toString()))
-    .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR' + err.message)
+    .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR -' + err.message + ' - API is likely down.')
 }
 
 function setElements(winner, confidence,synced)
@@ -32,6 +32,7 @@ function setElements(winner, confidence,synced)
     document.getElementById("winner").innerHTML = winner
     document.getElementById("confidence").innerHTML = confidence
     document.getElementById("synced").innerHTML = synced
+    document.getElementById("errormessage").innerHTML = ''
 }
 
 function getteams()
@@ -60,6 +61,7 @@ function getteams()
 
 function updateTeams(teams)
 {
+    document.getElementById("errormessage").innerHTML = ''
     teams = teams.sort()
 
     teamA = document.getElementById('teamA_id')
