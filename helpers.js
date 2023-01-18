@@ -12,9 +12,7 @@ async function getprediction()
 
     var raw = JSON.stringify({
         "teamA":document.getElementById("teamA_id").value,
-        "teamAseed":1,
         "teamB":document.getElementById("teamB_id").value,
-        "teamBseed":1,
         "year":document.getElementById("year_id").value
     });
 
