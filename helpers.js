@@ -8,7 +8,8 @@ async function getprediction()
     document.getElementById("synced").innerHTML = 'Loading...'
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append('Access-Control-Allow-Origin', 'https://mikemccolm.pythonanywhere.com')
+    myHeaders.append('Access-Control-Allow-Origin', 'https://mikemccolm.pythonanywhere.com');
+    myHeaders.append('Cache-Control': 'no-cache');
 
     var raw = JSON.stringify({
         "teamA":document.getElementById("teamA_id").value,
@@ -43,6 +44,7 @@ function getteams()
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append('Access-Control-Allow-Origin', 'https://mikemccolm.pythonanywhere.com')
+    myHeaders.append('Cache-Control': 'no-cache');
 
     var raw = JSON.stringify({
         "year":document.getElementById("year_id").value
