@@ -1,3 +1,6 @@
+hostname = 'https://mikemccolm.pythonanywhere.com'
+
+
 async function getprediction()
 {
     document.getElementById("winner").innerHTML = 'Loading...'
@@ -5,7 +8,7 @@ async function getprediction()
     document.getElementById("synced").innerHTML = 'Loading...'
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append('Access-Control-Allow-Origin', 'http://127.0.0.1:8080')
+    myHeaders.append('Access-Control-Allow-Origin', 'https://mikemccolm.pythonanywhere.com')
 
     var raw = JSON.stringify({
         "teamA":document.getElementById("teamA_id").value,
@@ -21,7 +24,7 @@ async function getprediction()
     redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:8080/predict", requestOptions)
+    fetch("https://mikemccolm.pythonanywhere.com/predict", requestOptions)
     .then(response => response.json())
     .then(result => setElements(result.winner, result.confidence.toString(),result.synced.toString()))
     .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR -' + err.message + ' - API is likely down.')
@@ -39,7 +42,7 @@ function getteams()
 {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append('Access-Control-Allow-Origin', 'http://127.0.0.1:8080')
+    myHeaders.append('Access-Control-Allow-Origin', 'https://mikemccolm.pythonanywhere.com')
 
     var raw = JSON.stringify({
         "year":document.getElementById("year_id").value
@@ -53,7 +56,7 @@ function getteams()
     redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:8080/teams", requestOptions)
+    fetch("https://mikemccolm.pythonanywhere.com/teams", requestOptions)
     .then(response => response.json())
     .then(result => updateTeams(result.teams))
     .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR' + err.message)
