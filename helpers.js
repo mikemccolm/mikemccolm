@@ -27,17 +27,8 @@ async function getprediction()
 
     fetch("https://mikemccolm.pythonanywhere.com/predict", requestOptions)
     .then(response => response.json())
-    //.then(result => setElements(result.winner, result.confidence.toString(),result.synced.toString()))
-    .then(result=>logstuff(result))
+    .then(result => setElements(result['winner'], result['confidence'].toString(),result['synced'].toString()))
     .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR -' + err.message + ' - API is likely down.')
-}
-
-function logstuff(result)
-{
-    console.log(result)
-    console.log('aaa')
-    console.log(result.Object)
-    console.log(result['winner'])
 }
 
 function setElements(winner, confidence,synced)
