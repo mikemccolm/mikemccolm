@@ -1,5 +1,12 @@
 hostname = 'https://mikemccolm.pythonanywhere.com'
 
+async function resetresults()
+{
+    document.getElementById("winner").innerHTML = ''
+    document.getElementById("confidence").innerHTML = ''
+    document.getElementById("synced").innerHTML =''
+    document.getElementById("errormessage").innerHTML = ''
+}
 
 async function getprediction()
 {
