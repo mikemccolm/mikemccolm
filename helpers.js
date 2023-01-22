@@ -50,6 +50,8 @@ function getteams()
         "year":document.getElementById("year_id").value
     });
 
+    console.log(raw)
+
     var requestOptions = {
     method: 'POST',
     mode: 'cors',
