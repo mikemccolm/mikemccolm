@@ -24,18 +24,34 @@ async function getprediction()
     body: raw,
     redirect: 'follow'
     };
-
-    fetch("https://mikemccolm.pythonanywhere.com/predict", requestOptions)
-    .then(response => response.json())
-    .then(result => setElements(result['winner'], result['confidence'].toString(),result['synced'].toString()))
-    .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR -' + err.message + ' - API is likely down.')
+    if (document.getElementById("teamA_id").value.length > 0)
+    {
+        console.log
+        fetch("https://mikemccolm.pythonanywhere.com/predict", requestOptions)
+        .then(response => response.json())
+        .then(result => setElements(result['winner'], result['confidence'].toString(),result['synced'].toString()))
+        .catch(err => document.getElementById("errormessage").innerHTML = 'ERROR -' + err.message + ' - API is likely down.')
+    }
+    else
+    {
+        document.getElementById("errormessage").innerHTML = 'You need to load and pick teams first.'
+    }
+   
 }
 
 function setElements(winner, confidence,synced)
 {
     document.getElementById("winner").innerHTML = winner
     document.getElementById("confidence").innerHTML = confidence
-    document.getElementById("synced").innerHTML = synced
+    if (synced == 'false')
+    {
+        document.getElementById("synced").innerHTML = 'NO'
+    }
+    else
+    {
+        document.getElementById("synced").innerHTML = 'YES'
+
+    }
     document.getElementById("errormessage").innerHTML = ''
 }
 
@@ -49,8 +65,6 @@ function getteams()
     var raw = JSON.stringify({
         "year":document.getElementById("year_id").value
     });
-
-    console.log(raw)
 
     var requestOptions = {
     method: 'POST',

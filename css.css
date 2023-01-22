@@ -1,0 +1,58 @@
+.column {
+    float: left;
+    width: 33.33%;
+    outline:3px solid black;
+    height:180px;
+  }
+
+.row{
+    width:70%;
+    margin-left:15%;
+    text-align: center;
+}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .column {
+    float: left;
+  }
+  
+  .left, .right {
+    width: 25%;
+  }
+  
+  .middle {
+    width: 50%;
+  }
+  
+
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border:1px solid black
+  }
+
+.button:hover{
+    background-color:green;
+}
+
+  .result{
+    font-size:40px;
+  }

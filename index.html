@@ -1,53 +1,104 @@
-<script src="helpers.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>March Madness Predictor</title>
+  <script src="helpers.js"></script>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+   <h1><center>March Madness Predictor</center></h1>
+ 
 
-
-<h1><center>March Madness Predictor</center></h1>
-
-<div class="teamA">
-    <label for="teamA_id">Team A:</label>
-    <select name="teamA" id="teamA_id"></select>
+ <div class="row">
+   <div class="column">
+      <h2>Team A</h2>   
+   <br>
+   <div class="teamA">
+      <label for="teamA_id"></label>
+      <select name="teamA" id="teamA_id"></select>
+   </div>
+   <br>
+   </div>
+   <div class="column">
+      <h2>Year</h2>
+      <br/>
+      <div class="year">
+         <label for="year_id"></label>
+         <select name="year" id="year_id">
+           <option value = "2022">2022</option>
+           <option value = "2021">2021</option>
+           <option value = "2019">2019</option>
+           <option value = "2018">2018</option>
+           <option value = "2017">2017</option>
+           <option value = "2016">2016</option>
+           <option value = "2015">2015</option>
+           <option value = "2014">2014</option>
+           <option value = "2013">2013</option>
+           <option value = "2012">2012</option>
+           <option value = "2011">2011</option>
+           <option value = "2010">2010</option>
+           <option value = "2009">2009</option>
+           <option value = "2008">2008</option>
+           <option value = "2007">2007</option>
+           <option value = "2006">2006</option>
+           <option value = "2005">2005</option>
+           <option value = "2004">2004</option>
+           <option value = "2003">2003</option>
+           <option value = "2002">2002</option>
+           <option value = "2001">2001</option>
+           <option value = "2000">2000</option>
+         </select>
+      </div>
+      <br/><br/>
+      <button onClick="getteams()">Load Teams</button>
+   </div>
+   <div class="column">
+      <h2>Team B</h2>
+      <br>
+      <div class="teamB">
+         <label for="teamB_id"></label>
+         <select name="teamB" id="teamB_id"></select>
+      </div>
+      <br>
+   </div>
  </div>
- <br>
- <div class="teamB">
-    <label for="teamB_id">Team B:</label>
-    <select name="teamB" id="teamB_id"></select>
+ <br><br>
+ <center><button class="button" onClick="getprediction()">Submit</button></center>
+<br>
+ <center><p style="color:red" id="errormessage"></p></center>
+ <div class="row">
+   <div class="column">
+      <h2>Winner</h2>
+      <p class="result"id = "winner"></p>
+   </div>
+   <div class="column">
+      <h2>Confidence</h2>
+      <p class="result"id = "confidence"></p>
+   </div>
+   <div class="column">
+      <h2>Synced</h2>
+      <p class="result"id = "synced"></p>
+   </div>
  </div>
- <br>
- <div class="year">
-    <label for="year_id">Year:</label>
-    <select name="year" id="year_id">
-      <option value = "2022">2022</option>
-      <option value = "2021">2021</option>
-      <option value = "2019">2019</option>
-      <option value = "2018">2018</option>
-      <option value = "2017">2017</option>
-      <option value = "2016">2016</option>
-      <option value = "2015">2015</option>
-      <option value = "2014">2014</option>
-      <option value = "2013">2013</option>
-      <option value = "2012">2012</option>
-      <option value = "2011">2011</option>
-      <option value = "2010">2010</option>
-      <option value = "2009">2009</option>
-      <option value = "2008">2008</option>
-      <option value = "2007">2007</option>
-      <option value = "2006">2006</option>
-      <option value = "2005">2005</option>
-      <option value = "2004">2004</option>
-      <option value = "2003">2003</option>
-      <option value = "2002">2002</option>
-      <option value = "2001">2001</option>
-      <option value = "2000">2000</option>
-    </select>
- </div>
- <button onClick="getteams()">Load Teams</button>
- <br><br><br>
 
- <button onClick="getprediction()">Submit</button>
+ <br><br>
+ <p>
+   <h3 style="display:inline">Disclaimer:</h3> 
+   This is not officially tested, nor is it any sort of official advice. 
+   Please do not treat this as an official recommendation from the creator.
+   Feel free to use any information or predictions used from this tool but do so at your own risk.
+ </p>
+ <p>
+   <h3 style="display:inline">Credit:</h3> Data is retrieved from <a href="https://www.sports-reference.com/">sportsreference.com</a>.
+   Model is built using keras/tensorflow.
+   Code, logic, pre/postprocessing my own.
+   Hosting is done through Github Pages & PythonAnywhere.
+ </p>
+ <p>
+   <h3 style="display:inline">Contact Me (Mike)</h3>: <a href = "mike.mccolm28@gmail.com">Email</a>/<a href="https://github.com/mikemccolm">Github</a>/<a href="linkedin.com/in/mike-mccolm-09102a158/">LinkedIn</a>
+</p>
+</body>
+</html>
 
- <p style="color:red" id="errormessage"></p>
 
- <h3>Results</h3>
- <p></p>Winner: <p id = "winner">-</p></p>
- <p></p>Confidence: <p id = "confidence">-</p></p>
- <p></p>Synced: <p id = "synced">-</p></p>
+
